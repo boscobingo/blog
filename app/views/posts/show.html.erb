@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @post.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @post.content %>
+</p>
+
+<!-- Display comment form so user can add a comment -->
+<h3>Add a comment:</h3>
+<%= render "comments/form" %>
+
+<!-- Display all current comments -->
+<table class="table table-bordered">
+  <tr><td><h3>Comments</h3></td></tr>
+  <% if @post.comments.count != 0 %>
+    <% @post.comments.each do |comment| %>
+        <tr><td>
+          <p><%= comment.commenter %> </p>
+          <p><%= comment.body %></p>
+        </td></tr>
+    <% end %>
+  <% end %>
+</table>
+
+<br/>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
