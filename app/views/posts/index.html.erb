@@ -1,26 +1,17 @@
-<table class="table table-striped">
-  <p><h1>The Rogers Blog</h1></p>
-
-  <tr>
-    <th>Name</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-  <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.name %></td>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= link_to 'Show', post, :class => 'btn btn-mini' %></td>
-        <td><%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-mini' %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
-      </tr>
-  <% end %>
-</table>
+<% @posts.each do |post| %>
+    <article>
+      <header>
+        <p>
+        <h2><%= link_to post.title, post %></h2>
+        <h5><%= post.updated_at.to_formatted_s(:long_ordinal) %></h5>
+        <p>
+      </header>
+      <p><%= post.content %></p>
+      <footer>
+        <h5>Posted by: <%= post.name %><h5>
+      </footer>
+    </article>
+<% end %>
 
 <br />
 
