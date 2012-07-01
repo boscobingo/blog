@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   attr_accessible :body, :commenter, :post
 
-  validates :body, :presence => true
-  validates :commenter, :presence => true
+  validates_presence_of :body, :message => 'is required'
+  validates_presence_of :commenter, :message => 'is required'
 end
