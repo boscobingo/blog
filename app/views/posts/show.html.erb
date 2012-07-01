@@ -14,22 +14,29 @@
   </footer>
 </article>
 
+<br>
+
 <!-- Display comment form so user can add a comment -->
 <h3>Add a comment:</h3>
 <%= render "comments/form" %>
 
+<br>
+
 <!-- Display all current comments -->
-<table class="table table-bordered">
-  <tr><td><h3>Comments</h3></td></tr>
+<article>
+  <header>
+    <p><h2>Comments</h2><hr><p>
+  </header>
   <% if @post.comments.count != 0 %>
-    <% @post.comments.each do |comment| %>
-        <tr><td>
-          <p><%= comment.commenter %> </p>
+      <% @post.comments.each do |comment| %>
+        <section>
+          <p><h5><%= comment.commenter %></h5></p>
           <p><%= comment.body %></p>
-        </td></tr>
-    <% end %>
+          <hr>
+        </section>
+      <% end %>
   <% end %>
-</table>
+</article>
 
 <!-- Links to go back, edit or delete this post -->
 <%= link_to 'Back', posts_path %> |
