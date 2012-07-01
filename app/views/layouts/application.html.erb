@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog</title>
+  <title>Rogers Blog</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -10,8 +10,13 @@
 
 <div class="container">
   <div class="row">
-    <div class="span9"><%= yield %></div>
-    <div class="span3"></div>
+    <div class="span9">
+      <p><h1>Rogers Blog</h1></p>
+      <hr>
+      <%= yield %>
+    </div>
+    <div class="span3">
+    </div>
   </div>
 </div>
 

@@ -2,8 +2,6 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
 
-  before_filter :get_post, :only => [:show, :edit, :update, :destroy]
-
   def get_post
     @post = Post.find(params[:id])
   end
@@ -81,4 +79,7 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+      before_filter :get_post, :only => [:show, :edit, :update, :destroy]
 end
